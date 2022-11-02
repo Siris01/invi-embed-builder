@@ -117,7 +117,13 @@ export function DataEditorModal(props: DataEditorModalProps) {
           Copy to Clipboard
         </SecondaryButton>
         <SecondaryButton>
-          <a style={{ color: "inherit" }} href={`data:text/json;charset=utf-8,${encodeURIComponent(value)}`} download={`embeds-${Date.now()}.json`}>Download JSON</a>
+          <a
+            style={{ color: "inherit" }}
+            href={`data:text/json;charset=utf-8,${encodeURIComponent(value)}`}
+            download={`embeds-${Date.now()}.json`}
+          >
+            Download JSON
+          </a>
         </SecondaryButton>
         <SecondaryButton onClick={() => modal.dismiss()}>
           Cancel

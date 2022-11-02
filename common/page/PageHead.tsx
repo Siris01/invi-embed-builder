@@ -64,9 +64,7 @@ export function PageHead(props: PageHeadProps) {
         name="viewport"
         content="width=device-width, initial-scale=1.0"
       />
-      <title key="title">
-        {title === "Invi" ? title : `${title} • Invi`}
-      </title>
+      <title key="title">{title === "Invi" ? title : `${title} • Invi`}</title>
       <meta key="description" name="description" content={description} />
       <meta key="og:title" property="og:title" content={title} />
       <meta key="og:type" property="og:type" content="website" />
@@ -90,11 +88,7 @@ export function PageHead(props: PageHeadProps) {
       {links.map(link => (
         <link key={`${link.rel}:${link.href}`} {...link} />
       ))}
-      <meta
-        key="application-name"
-        name="application-name"
-        content="Invi"
-      />
+      <meta key="application-name" name="application-name" content="Invi" />
       <meta key="theme-color" name="theme-color" content="#58b9ff" />
       <meta key="color-scheme" name="color-scheme" content="dark light" />
       <meta key="google" name="google" content="notranslate" />

@@ -45,10 +45,7 @@ export default function Viewer(props: ViewerProps) {
 
   return useObserver(() => (
     <EditorManagerProvider value={editorManager}>
-      <PageHead
-        title="Message Viewer"
-        description="Live embed preview"
-      >
+      <PageHead title="Message Viewer" description="Live embed preview">
         <meta key="referrer" name="referrer" content="strict-origin" />
       </PageHead>
       <Container>

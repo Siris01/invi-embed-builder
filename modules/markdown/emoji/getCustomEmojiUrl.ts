@@ -1,6 +1,6 @@
 const CUSTOM_EMOJI_CDN_BASE_URL = "https://cdn.discordapp.com/emojis"
 
-const EXCEPTIONS = new Map();
+const EXCEPTIONS = new Map()
 
 export const getCustomEmojiUrl = (id: string, animated?: boolean) => {
   if (EXCEPTIONS.has(id)) return EXCEPTIONS.get(id)

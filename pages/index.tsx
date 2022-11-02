@@ -89,15 +89,19 @@ export default function Main(props: MainProps) {
             { name: "Support", to: "/discord", newWindow: true },
             { name: "Bot", to: "/bot", newWindow: true },
             { name: "Settings", handler: spawnSettingsModal },
-            { name: "Dashboard", to: `${mainDomain}/dashboard`, newWindow: true }
+            {
+              name: "Dashboard",
+              to: `${mainDomain}/dashboard`,
+              newWindow: true,
+            },
           ]}
           tabs={
             mobile
               ? {
-                items: ["Editor", "Preview"],
-                current: activeTab,
-                onChange: setActiveTab,
-              }
+                  items: ["Editor", "Preview"],
+                  current: activeTab,
+                  onChange: setActiveTab,
+                }
               : undefined
           }
         />

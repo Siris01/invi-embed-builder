@@ -1,17 +1,20 @@
 import type { SnapshotIn } from "mobx-state-tree"
-import { discohook, discohookSource, mainDomain, source } from "../../common/utilities/constants"
+import {
+  discohook,
+  discohookSource,
+  mainDomain,
+  source,
+} from "../../common/utilities/constants"
 import type { EditorManager } from "./EditorManager"
 
 export const DEFAULT_EDITOR_MANAGER_STATE: SnapshotIn<typeof EditorManager> = {
   messages: [
     {
-      content:
-        "Hey!",
+      content: "Hey!",
       embeds: [
         {
           title: "Info",
-          description:
-            `This website is a slightly modified fork of [Discohook](${discohook}).\n\n__**Features**__\n▸Edit, preview, share and send embeds\n▸Edit join & leave messages for your server`,
+          description: `This website is a slightly modified fork of [Discohook](${discohook}).\n\n__**Features**__\n▸Edit, preview, share and send embeds\n▸Edit join & leave messages for your server`,
           color: {
             hue: 235,
             saturation: 0.86,
@@ -20,22 +23,20 @@ export const DEFAULT_EDITOR_MANAGER_STATE: SnapshotIn<typeof EditorManager> = {
         },
         {
           title: "Links",
-          description:
-            "",
-            color: {
-              hue: 235,
-              saturation: 0.86,
-              value:1,
-            },
+          description: "",
+          color: {
+            hue: 235,
+            saturation: 0.86,
+            value: 1,
+          },
           fields: [
             {
-              name:
-                "Source Codes",
-              value: `[Original Source](${discohookSource})\n[This fork](${source})`
+              name: "Source Codes",
+              value: `[Original Source](${discohookSource})\n[This fork](${source})`,
             },
             {
               name: "Website Links",
-              value: `[Discohook](${discohook})\n[Invi](${mainDomain})`
+              value: `[Discohook](${discohook})\n[Invi](${mainDomain})`,
             },
           ],
         },

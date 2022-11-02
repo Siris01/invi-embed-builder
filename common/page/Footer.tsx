@@ -82,7 +82,9 @@ export function Footer() {
         {monochromeLogo}
         <BrandName>Invi</BrandName>
       </BrandContainer>
-      <Tagline>An embed builder forked from <a href={discohook}>Discohook</a></Tagline>
+      <Tagline>
+        An embed builder forked from <a href={discohook}>Discohook</a>
+      </Tagline>
       <NavigationList>
         <NavigationItem href="/discord" target="_blank">
           Discord Support Server
