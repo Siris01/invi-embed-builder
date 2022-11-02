@@ -20,6 +20,7 @@ export type ConfigModalProps = {
 
 const setMsg = async (manager: EditorManagerLike, type: "join" | "leave", guild: string | null) => {
   if (!guild) return false;
+  if (guild.length < 15) return false;
   const data = stringifyMessage(manager.messages[0].data);
 
   return fetch(`${baseAPI}/${guild}/logging`, {
