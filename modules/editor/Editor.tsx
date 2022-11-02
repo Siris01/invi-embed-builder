@@ -17,10 +17,10 @@ import type { BackupsModalProps } from "../database/backup/modal/BackupsModal"
 import { Markdown } from "../markdown/Markdown"
 import { createEditorForm } from "../message/state/editorForm"
 import type { MessageLike } from "../message/state/models/MessageModel"
+import { ConfigModal } from "./configBot/ConfigModal"
 import { EditorManagerContext } from "./EditorManagerContext"
 import { ClearAllConfirmationModal } from "./message/ClearAllConfirmationModal"
 import { MessageEditor } from "./message/MessageEditor"
-import { ShareModal } from "./share/ShareModal"
 import { WebhookControls } from "./webhook/WebhookControls"
 
 const BackupsModal = dynamic<BackupsModalProps>(async () =>
@@ -66,9 +66,9 @@ export function Editor() {
       render: () => <ClearAllConfirmationModal editorManager={editorManager} />,
     })
 
-  const spawnShareModal = () =>
+  const spawnConfigModal = () =>
     modalManager.spawn({
-      render: () => <ShareModal editorManager={editorManager} />,
+      render: () => <ConfigModal editorManager={editorManager} />,
     })
 
   const confirmExit = usePreference("confirmExit")
@@ -86,7 +86,7 @@ export function Editor() {
         <Markdown
           content={
             "It appears your web browser has prevented this page from " +
-            "executing JavaScript.\nTo use Discohook, please allow this page " +
+            "executing JavaScript.\nTo use this website, please allow this page " +
             "to run JavaScript from your browser's settings."
           }
         />
@@ -98,8 +98,8 @@ export function Editor() {
         <SecondaryButton onClick={() => spawnClearAllModal()}>
           Clear All
         </SecondaryButton>
-        <SecondaryButton onClick={() => spawnShareModal()}>
-          Share Message
+        <SecondaryButton onClick={() => spawnConfigModal()}>
+          Set as join/leave msg
         </SecondaryButton>
       </ButtonList>
       <WebhookControls form={form} />

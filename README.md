@@ -1,10 +1,6 @@
-# Discohook
+# Invi
 
-[![ci](https://github.com/discohook/site/actions/workflows/ci.yml/badge.svg?branch=main&event=push)](https://github.com/discohook/site/actions/workflows/ci.yml)
-
-An easy-to-use tool for building and sending Discord messages and embeds using webhooks.
-
-Live instance is available at <https://discohook.app/>.
+Slightly modified fork of ![Discohook](https://github.com/discohook/site)
 
 ## Setup
 

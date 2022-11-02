@@ -47,7 +47,7 @@ export default function Viewer(props: ViewerProps) {
     <EditorManagerProvider value={editorManager}>
       <PageHead
         title="Message Viewer"
-        description="Discohook's standalone message viewer."
+        description="Live embed preview"
       >
         <meta key="referrer" name="referrer" content="strict-origin" />
       </PageHead>

@@ -1,6 +1,7 @@
 import React from "react"
 import styled from "styled-components"
 import { monochromeLogo } from "../../icons/logo"
+import { discohook, source } from "../utilities/constants"
 
 const Container = styled.footer`
   margin: 16px;
@@ -79,28 +80,23 @@ export function Footer() {
     <Container>
       <BrandContainer>
         {monochromeLogo}
-        <BrandName>Discohook</BrandName>
+        <BrandName>Invi</BrandName>
       </BrandContainer>
-      <Tagline>The easiest way to personalise your Discord server.</Tagline>
-      <Info>Email: &quot;hello&quot; at discohook.app</Info>
+      <Tagline>An embed builder forked from <a href={discohook}>Discohook</a></Tagline>
       <NavigationList>
         <NavigationItem href="/discord" target="_blank">
           Discord Support Server
         </NavigationItem>
-        <NavigationItem href="/bot" target="_blank">
-          Discord Bot
-        </NavigationItem>
-        <NavigationItem href="https://git.io/discohook" target="_blank">
+        <NavigationItem href={source} target="_blank">
           Source Code
+        </NavigationItem>
+        <NavigationItem href={discohook} target="_blank">
+          Discohook (Original Project)
         </NavigationItem>
         <NavigationItem href="https://patreon.com/vivifund" target="_blank">
           Support Discohook
         </NavigationItem>
       </NavigationList>
-      <LegalInfo>
-        &copy; 2021 The Discohook Authors. Discohook is not affiliated with
-        Discord.
-      </LegalInfo>
       <LegalInfo>
         This website is made available under the terms of the GNU AGPL v3
         license.

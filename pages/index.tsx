@@ -12,6 +12,7 @@ import { PreferencesModal } from "../common/settings/PreferencesModal"
 import { useAutorun } from "../common/state/useAutorun"
 import { useLazyValue } from "../common/state/useLazyValue"
 import { useRequiredContext } from "../common/state/useRequiredContext"
+import { mainDomain } from "../common/utilities/constants"
 import { timeout } from "../common/utilities/timeout"
 import { Editor } from "../modules/editor/Editor"
 import { EditorManager } from "../modules/editor/EditorManager"
@@ -77,7 +78,7 @@ export default function Main(props: MainProps) {
   return useObserver(() => (
     <EditorManagerProvider value={editorManager}>
       <PageHead
-        title="Discohook"
+        title="Invi"
         description="The easiest way to personalise your Discord server."
       >
         <meta key="referrer" name="referrer" content="strict-origin" />
@@ -85,17 +86,18 @@ export default function Main(props: MainProps) {
       <Container>
         <Header
           items={[
-            { name: "Support Server", to: "/discord", newWindow: true },
-            { name: "Discord Bot", to: "/bot", newWindow: true },
+            { name: "Support", to: "/discord", newWindow: true },
+            { name: "Bot", to: "/bot", newWindow: true },
             { name: "Settings", handler: spawnSettingsModal },
+            { name: "Dashboard", to: `${mainDomain}/dashboard`, newWindow: true }
           ]}
           tabs={
             mobile
               ? {
-                  items: ["Editor", "Preview"],
-                  current: activeTab,
-                  onChange: setActiveTab,
-                }
+                items: ["Editor", "Preview"],
+                current: activeTab,
+                onChange: setActiveTab,
+              }
               : undefined
           }
         />
