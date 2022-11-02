@@ -53,7 +53,7 @@ export default function Main() {
   const query = useRouter().query
   const state = getSnapshot(getEditorManagerFromQuery(query))
 
-  const [width, setWidth] = useState<number>(0)
+  const [width, setWidth] = useState<number>(1_000)
   useEffect(() => {
     setWidth(window.innerWidth)
     window.addEventListener("resize", () => setWidth(window.innerWidth))
