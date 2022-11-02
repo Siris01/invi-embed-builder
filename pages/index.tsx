@@ -89,10 +89,7 @@ export default function Main() {
 
   return useObserver(() => (
     <EditorManagerProvider value={editorManager}>
-      <PageHead
-        title="Invi"
-        description="Discord Embed builder"
-      >
+      <PageHead title="Invi" description="Discord Embed builder">
         <meta key="referrer" name="referrer" content="strict-origin" />
       </PageHead>
       <Container>
@@ -110,10 +107,10 @@ export default function Main() {
           tabs={
             mobile
               ? {
-                items: ["Editor", "Preview"],
-                current: activeTab,
-                onChange: setActiveTab,
-              }
+                  items: ["Editor", "Preview"],
+                  current: activeTab,
+                  onChange: setActiveTab,
+                }
               : undefined
           }
         />
@@ -134,5 +131,3 @@ export default function Main() {
     </EditorManagerProvider>
   ))
 }
-
-
