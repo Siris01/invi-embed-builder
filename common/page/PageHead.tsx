@@ -68,7 +68,7 @@ export function PageHead(props: PageHeadProps) {
       <meta key="description" name="description" content={description} />
       <meta key="og:title" property="og:title" content={title} />
       <meta key="og:type" property="og:type" content="website" />
-      <meta key="og:image" property="og:image" content="/static/icon-256.png" />
+      <meta key="og:image" property="og:image" content="/static/logo.png" />
       <meta
         key="og:url"
         property="og:url"
@@ -89,7 +89,7 @@ export function PageHead(props: PageHeadProps) {
         <link key={`${link.rel}:${link.href}`} {...link} />
       ))}
       <meta key="application-name" name="application-name" content="Invi" />
-      <meta key="theme-color" name="theme-color" content="#58b9ff" />
+      <meta key="theme-color" name="theme-color" content="#5865f2" />
       <meta key="color-scheme" name="color-scheme" content="dark light" />
       <meta key="google" name="google" content="notranslate" />
       {children}

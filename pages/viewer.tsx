@@ -1,6 +1,5 @@
 import { useObserver } from "mobx-react-lite"
 import { destroy, getSnapshot, SnapshotOut } from "mobx-state-tree"
-import type { GetServerSidePropsContext } from "next"
 import { useRouter } from "next/router"
 import React, { useEffect } from "react"
 import styled from "styled-components"
@@ -31,8 +30,9 @@ export type ViewerProps = {
   state: SnapshotOut<typeof EditorManager>
 }
 
-export default function Viewer(props: ViewerProps) {
-  const { state } = props
+export default function Viewer() {
+  const query = useRouter().query
+  const state = getSnapshot(getEditorManagerFromQuery(query))
 
   const editorManager = useLazyValue(() => EditorManager.create(state))
   useEffect(() => () => destroy(editorManager), [editorManager])
@@ -65,14 +65,4 @@ export default function Viewer(props: ViewerProps) {
       </Container>
     </EditorManagerProvider>
   ))
-}
-
-export const getServerSideProps = (
-  context: GetServerSidePropsContext,
-): { props: ViewerProps } => {
-  return {
-    props: {
-      state: getSnapshot(getEditorManagerFromQuery(context.query)),
-    },
-  }
 }

@@ -1,6 +1,7 @@
 import { useObserver } from "mobx-react-lite"
 import { destroy, getSnapshot, SnapshotOut } from "mobx-state-tree"
 import type { GetServerSidePropsContext } from "next"
+import { useRouter } from "next/router"
 import React, { useEffect, useRef, useState } from "react"
 import styled from "styled-components"
 import { base64UrlEncode } from "../common/base64/base64UrlEncode"
@@ -48,8 +49,20 @@ export type MainProps = {
   mobile: boolean
 }
 
-export default function Main(props: MainProps) {
-  const { state, mobile } = props
+export default function Main() {
+  const query = useRouter().query
+  const state = getSnapshot(getEditorManagerFromQuery(query))
+
+  const [width, setWidth] = useState<number>(0)
+  useEffect(() => {
+    setWidth(window.innerWidth)
+    window.addEventListener("resize", () => setWidth(window.innerWidth))
+    return () => {
+      window.removeEventListener("resize", () => setWidth(window.innerWidth))
+    }
+  }, [])
+
+  const mobile = width <= 768
 
   const editorManager = useLazyValue(() => EditorManager.create(state))
   useEffect(() => () => destroy(editorManager), [editorManager])
@@ -79,7 +92,7 @@ export default function Main(props: MainProps) {
     <EditorManagerProvider value={editorManager}>
       <PageHead
         title="Invi"
-        description="The easiest way to personalise your Discord server."
+        description="Discord Embed builder"
       >
         <meta key="referrer" name="referrer" content="strict-origin" />
       </PageHead>
@@ -98,10 +111,10 @@ export default function Main(props: MainProps) {
           tabs={
             mobile
               ? {
-                  items: ["Editor", "Preview"],
-                  current: activeTab,
-                  onChange: setActiveTab,
-                }
+                items: ["Editor", "Preview"],
+                current: activeTab,
+                onChange: setActiveTab,
+              }
               : undefined
           }
         />

@@ -1,6 +1,6 @@
 import React from "react"
+import Loading from "../common/layout/Loading"
 import { mainDomain } from "../common/utilities/constants"
-import styles from "./landing.module.css"
 
 const Landing = () => {
   React.useEffect(() => {
@@ -12,12 +12,8 @@ const Landing = () => {
       }
     })
   }, [])
-  return (
-    <div className={styles.container}>
-      <span className={styles.loader} />
-      <span className={styles.text}>Loading...</span>
-    </div>
-  )
+
+  return <Loading />
 }
 
 export default Landing
