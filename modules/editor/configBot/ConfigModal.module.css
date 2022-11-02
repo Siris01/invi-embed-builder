@@ -16,6 +16,19 @@
     margin: 2px;
 }
 
+.dropdown {
+    border-radius: 4px;
+    border: 1px solid #ccc;
+    font-size: 1rem;
+}
+
+.dropdownElements {
+    padding: 2px;
+    margin: 2px;
+    font-size: 1.25rem;
+    font-weight: 400;
+}
+
 .loader {
     width: 16px;
     height: 16px;

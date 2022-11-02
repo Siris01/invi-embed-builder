@@ -61,10 +61,11 @@ export function ConfigModal(props: ConfigModalProps) {
           <div className={styles.row}>
             <form><label className={styles.child} htmlFor="server-list">Choose a server:</label>
               <select onChange={(event) => {
+                console.log(event.target.value);
                 setServer(event.target.value);
-              }} className={styles.child} name="server-list" id="server-list">
+              }} className={`${styles.child} ${styles.dropdown}`} name="server-list" id="server-list">
                 {
-                  [<option key={0} value={0} style={{ display: "none" }}>0</option>, ...servers.map(s => <option key={s.id} value={s.id}>{s.name}</option>)]
+                  [<option key={0} value={0} style={{ display: "none" }} />, ...servers.map(s => <option className={styles.dropdownElements} key={s.id} value={s.id}>{s.name}</option>)]
                 }
               </select></form>
           </div>
@@ -78,7 +79,7 @@ export function ConfigModal(props: ConfigModalProps) {
                 else setJoinBtn("error");
               }}
             >
-              {joinBtn === null ? "Set as join msg" : joinBtn === "loading" ? <span className={styles.loader} /> : joinBtn === "error" ? "Error" : "..."}
+              {joinBtn === null ? "Set as join msg" : joinBtn === "loading" ? <span className={styles.loader} /> : joinBtn === "error" ? "Error" : "Done!"}
             </PrimaryButton></div>
             <div className={styles.child}><PrimaryButton
               onClick={async () => {
@@ -89,7 +90,7 @@ export function ConfigModal(props: ConfigModalProps) {
                 else setLeaveBtn("error");
               }}
             >
-              {leaveBtn === null ? "Set as leave msg" : leaveBtn === "loading" ? <span className={styles.loader} /> : leaveBtn === "error" ? "Error" : "..."}
+              {leaveBtn === null ? "Set as leave msg" : leaveBtn === "loading" ? <span className={styles.loader} /> : leaveBtn === "error" ? "Error" : "Done!"}
             </PrimaryButton></div>
           </div>
         </div>

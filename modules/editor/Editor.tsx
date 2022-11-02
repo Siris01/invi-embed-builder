@@ -98,9 +98,9 @@ export function Editor() {
         <SecondaryButton onClick={() => spawnClearAllModal()}>
           Clear All
         </SecondaryButton>
-        <SecondaryButton onClick={() => spawnConfigModal()}>
+        <PrimaryButton onClick={() => spawnConfigModal()}>
           Set as join/leave msg
-        </SecondaryButton>
+        </PrimaryButton>
       </ButtonList>
       <WebhookControls form={form} />
       {editorManager.messages.map((message, index) => (
