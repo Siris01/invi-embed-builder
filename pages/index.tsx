@@ -1,6 +1,5 @@
 import { useObserver } from "mobx-react-lite"
 import { destroy, getSnapshot, SnapshotOut } from "mobx-state-tree"
-import type { GetServerSidePropsContext } from "next"
 import { useRouter } from "next/router"
 import React, { useEffect, useRef, useState } from "react"
 import styled from "styled-components"
@@ -136,13 +135,4 @@ export default function Main() {
   ))
 }
 
-export const getServerSideProps = (
-  context: GetServerSidePropsContext,
-): { props: MainProps } => {
-  return {
-    props: {
-      state: getSnapshot(getEditorManagerFromQuery(context.query)),
-      mobile: /mobile/i.test(context.req.headers["user-agent"] ?? ""),
-    },
-  }
-}
+
