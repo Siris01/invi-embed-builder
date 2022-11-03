@@ -35,8 +35,8 @@ export const DEFAULT_EDITOR_MANAGER_STATE: SnapshotIn<typeof EditorManager> = {
             },
             {
               name: "Website Links",
-              value: `[Discohook](${discohook})\n[Invi](${process.env
-                .NEXT_PUBLIC_DOMAIN!})`,
+              value: `[Discohook](${discohook})\n[Invi](https://${process.env
+                .NEXT_PUBLIC_MAIN_DOMAIN!})`,
             },
           ],
         },
