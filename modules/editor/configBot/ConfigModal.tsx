@@ -8,7 +8,6 @@ import { ModalHeader } from "../../../common/modal/layout/ModalHeader"
 import { ModalTitle } from "../../../common/modal/layout/ModalTitle"
 import { ModalContext } from "../../../common/modal/ModalContext"
 import { useRequiredContext } from "../../../common/state/useRequiredContext"
-import { baseAPI } from "../../../common/utilities/constants"
 import { remove } from "../../../icons/remove"
 import { stringifyMessage } from "../../message/helpers/stringifyMessage"
 import type { EditorManagerLike } from "../EditorManager"
@@ -27,7 +26,7 @@ const setMsg = async (
   if (guild.length < 15) return false
   const data = stringifyMessage(manager.messages[0].data)
 
-  return fetch(`${baseAPI}/${guild}/logging`, {
+  return fetch(`${process.env.NEXT_PUBLIC_API!}/${guild}/logging`, {
     method: "PATCH",
     headers: {
       "Content-Type": "application/json",
