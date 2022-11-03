@@ -737,71 +737,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@discohook/site@workspace:.":
-  version: 0.0.0-use.local
-  resolution: "@discohook/site@workspace:."
-  dependencies:
-    "@babel/core": ^7.12.17
-    "@babel/plugin-proposal-class-properties": ^7.12.13
-    "@babel/plugin-proposal-decorators": ^7.12.13
-    "@babel/runtime": ^7.12.18
-    "@next/bundle-analyzer": ^10.0.7
-    "@popperjs/core": ^2.8.3
-    "@reach/slider": ^0.13.2
-    "@reach/tabs": ^0.13.2
-    "@react-spring/web": ^9.0.0-rc.3
-    "@testing-library/dom": ^7.29.6
-    "@testing-library/jest-dom": ^5.11.9
-    "@testing-library/react": ^11.2.5
-    "@testing-library/user-event": ^12.7.2
-    "@types/caniuse-lite": ^1
-    "@types/jest": ^26
-    "@types/node": ^14
-    "@types/react": ^17
-    "@types/react-dom": ^17
-    "@types/react-is": ^17
-    "@types/styled-components": ^5
-    "@types/testing-library__jest-dom": ^5
-    "@typescript-eslint/eslint-plugin": ^4.15.1
-    "@typescript-eslint/parser": ^4.15.1
-    babel-plugin-styled-components: ^1.12.0
-    browserslist: ^4.21.3
-    caniuse-lite: ^1.0.30001373
-    core-js: ^3.9.0
-    core-js-bundle: ^3.9.0
-    date-fns: ^2.17.0
-    eslint: ^7.20.0
-    eslint-import-resolver-node: ^0.3.4
-    eslint-plugin-import: ^2.22.1
-    eslint-plugin-react: ^7.22.0
-    eslint-plugin-react-hooks: ^4.2.0
-    eslint-plugin-unicorn: ^28.0.2
-    fake-indexeddb: ^3.1.2
-    highlight.js: ^10.6.0
-    idb: ^6.0.0
-    jest: ^26.6.3
-    mobx: ^5.15.7
-    mobx-react-lite: ^2.2.2
-    mobx-state-tree: ^3.17.3
-    mstform: "patch:mstform@1.27.0#./patches/mstform+1.27.0.patch"
-    next: ^10.0.7
-    polished: ^4.1.1
-    prettier: ^2.2.1
-    punycode: ^2.1.1
-    react: ^17.0.1
-    react-dom: ^17.0.1
-    react-focus-on: ^3.5.1
-    react-is: ^17.0.1
-    react-merge-refs: ^1.1.0
-    regenerator-runtime: ^0.13.7
-    resize-observer-polyfill: ^1.5.1
-    simple-markdown: ^0.7.3
-    styled-components: ^5.2.1
-    typescript: ^4.1.5
-    url: ^0.11.0
-  languageName: unknown
-  linkType: soft
-
 "@emotion/is-prop-valid@npm:^0.8.8":
   version: 0.8.8
   resolution: "@emotion/is-prop-valid@npm:0.8.8"
@@ -4884,6 +4819,71 @@ fsevents@~2.3.1:
   languageName: node
   linkType: hard
 
+"invi-embed-builder@workspace:.":
+  version: 0.0.0-use.local
+  resolution: "invi-embed-builder@workspace:."
+  dependencies:
+    "@babel/core": ^7.12.17
+    "@babel/plugin-proposal-class-properties": ^7.12.13
+    "@babel/plugin-proposal-decorators": ^7.12.13
+    "@babel/runtime": ^7.12.18
+    "@next/bundle-analyzer": ^10.0.7
+    "@popperjs/core": ^2.8.3
+    "@reach/slider": ^0.13.2
+    "@reach/tabs": ^0.13.2
+    "@react-spring/web": ^9.0.0-rc.3
+    "@testing-library/dom": ^7.29.6
+    "@testing-library/jest-dom": ^5.11.9
+    "@testing-library/react": ^11.2.5
+    "@testing-library/user-event": ^12.7.2
+    "@types/caniuse-lite": ^1
+    "@types/jest": ^26
+    "@types/node": ^14
+    "@types/react": ^17
+    "@types/react-dom": ^17
+    "@types/react-is": ^17
+    "@types/styled-components": ^5
+    "@types/testing-library__jest-dom": ^5
+    "@typescript-eslint/eslint-plugin": ^4.15.1
+    "@typescript-eslint/parser": ^4.15.1
+    babel-plugin-styled-components: ^1.12.0
+    browserslist: ^4.21.3
+    caniuse-lite: ^1.0.30001373
+    core-js: ^3.9.0
+    core-js-bundle: ^3.9.0
+    date-fns: ^2.17.0
+    eslint: ^7.20.0
+    eslint-import-resolver-node: ^0.3.4
+    eslint-plugin-import: ^2.22.1
+    eslint-plugin-react: ^7.22.0
+    eslint-plugin-react-hooks: ^4.2.0
+    eslint-plugin-unicorn: ^28.0.2
+    fake-indexeddb: ^3.1.2
+    highlight.js: ^10.6.0
+    idb: ^6.0.0
+    jest: ^26.6.3
+    mobx: ^5.15.7
+    mobx-react-lite: ^2.2.2
+    mobx-state-tree: ^3.17.3
+    mstform: "patch:mstform@1.27.0#./patches/mstform+1.27.0.patch"
+    next: ^10.0.7
+    polished: ^4.1.1
+    prettier: ^2.2.1
+    punycode: ^2.1.1
+    react: ^17.0.1
+    react-dom: ^17.0.1
+    react-focus-on: ^3.5.1
+    react-is: ^17.0.1
+    react-merge-refs: ^1.1.0
+    regenerator-runtime: ^0.13.7
+    resize-observer-polyfill: ^1.5.1
+    simple-markdown: ^0.7.3
+    styled-components: ^5.2.1
+    typescript: ^4.1.5
+    url: ^0.11.0
+  languageName: unknown
+  linkType: soft
+
 "ip-regex@npm:^2.1.0":
   version: 2.1.0
   resolution: "ip-regex@npm:2.1.0"
@@ -6358,9 +6358,9 @@ mstform@1.27.0:
   languageName: node
   linkType: hard
 
-"mstform@patch:mstform@1.27.0#./patches/mstform+1.27.0.patch::locator=%40discohook%2Fsite%40workspace%3A.":
+"mstform@patch:mstform@1.27.0#./patches/mstform+1.27.0.patch::locator=invi-embed-builder%40workspace%3A.":
   version: 1.27.0
-  resolution: "mstform@patch:mstform@npm%3A1.27.0#./patches/mstform+1.27.0.patch::version=1.27.0&hash=a24d3d&locator=%40discohook%2Fsite%40workspace%3A."
+  resolution: "mstform@patch:mstform@npm%3A1.27.0#./patches/mstform+1.27.0.patch::version=1.27.0&hash=a24d3d&locator=invi-embed-builder%40workspace%3A."
   dependencies:
     lodash.debounce: ^4.0.8
   peerDependencies:
