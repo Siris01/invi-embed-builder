@@ -9,7 +9,7 @@ const Landing = () => {
     if (memory.template) {
       const template = base64UrlEncode(JSON.stringify([memory.template]))
       window.location.href = `/embed?data=${template}`
-    }
+    } else window.location.href = "/embed"
   }, [])
 
   return <Loading />
