@@ -1,11 +1,10 @@
 {
-  "name": "@discohook/site",
+  "name": "invi-embed-builder",
   "version": "1.0.0",
   "private": true,
   "license": "AGPL-3.0-or-later",
   "scripts": {
     "start": "NODE_OPTIONS=--max-http-header-size=81920 next start",
-    "install": "yarn install",
     "build": "next build",
     "dev": "NODE_OPTIONS='--inspect --max-http-header-size=81920' next dev --port 3333",
     "test": "NODE_ENV=test TZ=UTC jest",
