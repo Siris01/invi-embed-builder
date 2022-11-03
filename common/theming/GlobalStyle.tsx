@@ -3,15 +3,15 @@ import { createGlobalStyle, css } from "styled-components"
 
 export const GlobalStyle = createGlobalStyle`${css`
   ${[300, 400, 500, 600, 700].map(weight =>
-    fontFace({
-      fontFamily: "Whitney",
-      fontStyle: "normal",
-      fontWeight: String(weight),
-      fontFilePath: `/static/whitney-${weight}`,
-      fileFormats: ["woff2", "woff"],
-      fontDisplay: "swap",
-    }),
-  )};
+  fontFace({
+    fontFamily: "Whitney",
+    fontStyle: "normal",
+    fontWeight: String(weight),
+    fontFilePath: `/embed/static/whitney-${weight}`,
+    fileFormats: ["woff2", "woff"],
+    fontDisplay: "swap",
+  }),
+)};
 
   html,
   body {
@@ -69,7 +69,7 @@ export const GlobalStyle = createGlobalStyle`${css`
     -webkit-tap-highlight-color: transparent;
 
     scrollbar-color: ${({ theme }) =>
-      `${theme.scrollbar.auto.thumb} ${theme.scrollbar.auto.track}`};
+    `${theme.scrollbar.auto.thumb} ${theme.scrollbar.auto.track}`};
     scrollbar-width: auto;
 
     &::-webkit-scrollbar {
@@ -102,7 +102,7 @@ export const GlobalStyle = createGlobalStyle`${css`
 
     &::-webkit-resizer {
       background-image: ${({ theme }) =>
-        `url("/static/resizer-${theme.appearance.color}.svg")`};
+    `url("/embed/static/resizer-${theme.appearance.color}.svg")`};
       background-repeat: no-repeat;
       background-position: bottom right;
     }

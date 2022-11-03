@@ -10,38 +10,22 @@ const links = [
     sizes: "16x16 32x32",
     type: "image/x-icon",
   },
-  [16, 32].map(size => ({
-    rel: "icon",
-    href: `/static/favicon-${size}.png`,
-    sizes: `${size}x${size}`,
-    type: "image/png",
-  })),
   {
     rel: "icon",
-    href: "/static/favicon.svg",
-    sizes: "any",
-    type: "image/svg+xml",
+    href: "/embed/static/favicon.png",
+    sizes: "32x32",
+    type: "image/png",
   },
-  [64, 96, 128, 192, 256].map(size => ({
-    rel: "apple-touch-icon",
-    href: `/static/icon-${size}.png`,
-    sizes: `${size}x${size}`,
-    type: "image/png",
-  })),
   {
-    rel: "apple-touch-icon",
-    href: "/static/icon.svg",
+    rel: "icon",
+    href: "/embed/static/favicon.svg",
     sizes: "any",
     type: "image/svg+xml",
   },
   {
     rel: "mask-icon",
-    href: "/static/mask-icon.svg",
+    href: "/embed/static/mask-icon.svg",
     type: "image/svg+xml",
-  },
-  {
-    rel: "manifest",
-    href: "/static/manifest.webmanifest",
   },
 ].flat()
 
@@ -68,7 +52,7 @@ export function PageHead(props: PageHeadProps) {
       <meta key="description" name="description" content={description} />
       <meta key="og:title" property="og:title" content={title} />
       <meta key="og:type" property="og:type" content="website" />
-      <meta key="og:image" property="og:image" content="/static/logo.png" />
+      <meta key="og:image" property="og:image" content="/embed/static/logo.png" />
       <meta
         key="og:url"
         property="og:url"
@@ -86,7 +70,7 @@ export function PageHead(props: PageHeadProps) {
         href={`${domain}${router.pathname}`}
       />
       {links.map(link => (
-        <link key={`${link.rel}:${link.href}`} {...link} />
+        <link key={`${link.rel}: ${link.href}`} {...link} />
       ))}
       <meta key="application-name" name="application-name" content="Invi" />
       <meta key="theme-color" name="theme-color" content="#5865f2" />

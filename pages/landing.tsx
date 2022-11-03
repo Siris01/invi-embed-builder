@@ -8,7 +8,7 @@ const Landing = () => {
 
     if (memory.template) {
       const template = base64UrlEncode(memory.template)
-      window.location.href = `/?data=${template}`
+      window.location.href = `/embed?data=${template}`
     }
   }, [])
 

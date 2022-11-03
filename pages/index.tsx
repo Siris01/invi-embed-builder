@@ -77,7 +77,7 @@ export default function Main() {
       const json = JSON.stringify({ messages })
       const base64 = base64UrlEncode(json)
 
-      history.replaceState({ __N: false }, "", `/?data=${base64}`)
+      history.replaceState({ __N: false }, "", `/embed?data=${base64}`)
     }, 500)
   })
 
@@ -107,10 +107,10 @@ export default function Main() {
           tabs={
             mobile
               ? {
-                  items: ["Editor", "Preview"],
-                  current: activeTab,
-                  onChange: setActiveTab,
-                }
+                items: ["Editor", "Preview"],
+                current: activeTab,
+                onChange: setActiveTab,
+              }
               : undefined
           }
         />
