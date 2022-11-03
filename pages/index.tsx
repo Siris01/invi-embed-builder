@@ -100,7 +100,7 @@ export default function Main() {
             { name: "Settings", handler: spawnSettingsModal },
             {
               name: "Dashboard",
-              to: `${mainDomain}/dashboard`,
+              to: `https://${mainDomain}/dashboard`,
               newWindow: true,
             },
           ]}

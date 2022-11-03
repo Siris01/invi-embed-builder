@@ -4,20 +4,12 @@ import Loading from "../common/layout/Loading"
 
 const Landing = () => {
   React.useEffect(() => {
-    window.addEventListener("message", msg => {
-      if (msg.origin === process.env.NEXT_PUBLIC_MAIN_DOMAIN!) {
-        localStorage.setItem("token", msg.data.token)
-        localStorage.setItem("servers", JSON.stringify(msg.data.servers))
+    const memory = JSON.parse(localStorage.getItem("memory")!)
 
-        if (!msg.data.template) {
-          window.location.href = "/"
-          return
-        }
-
-        const template = base64UrlEncode(JSON.stringify([msg.data.template]))
-        window.location.href = `/?data=${template}`
-      }
-    })
+    if (memory.template) {
+      const template = base64UrlEncode(memory.template)
+      window.location.href = `/?data=${template}`
+    }
   }, [])
 
   return <Loading />

@@ -80,6 +80,12 @@ export function Editor() {
     return ""
   })
 
+  const [showBtn, setShowBtn] = React.useState(false)
+
+  useEffect(() => {
+    if (window.localStorage.getItem("memory")) setShowBtn(true)
+  }, [])
+
   return useObserver(() => (
     <EditorContainer gap={16}>
       <JavaScriptWarning>
@@ -98,9 +104,11 @@ export function Editor() {
         <SecondaryButton onClick={() => spawnClearAllModal()}>
           Clear All
         </SecondaryButton>
-        <PrimaryButton onClick={() => spawnConfigModal()}>
-          Set as join/leave msg
-        </PrimaryButton>
+        {showBtn && (
+          <PrimaryButton onClick={() => spawnConfigModal()}>
+            Set as template
+          </PrimaryButton>
+        )}
       </ButtonList>
       <WebhookControls form={form} />
       {editorManager.messages.map((message, index) => (

@@ -2,6 +2,7 @@ import type { SnapshotIn } from "mobx-state-tree"
 import {
   discohook,
   discohookSource,
+  mainDomain,
   source,
 } from "../../common/utilities/constants"
 import type { EditorManager } from "./EditorManager"
@@ -35,8 +36,7 @@ export const DEFAULT_EDITOR_MANAGER_STATE: SnapshotIn<typeof EditorManager> = {
             },
             {
               name: "Website Links",
-              value: `[Discohook](${discohook})\n[Invi](https://${process.env
-                .NEXT_PUBLIC_MAIN_DOMAIN!})`,
+              value: `[Discohook](${discohook})\n[Invi](${mainDomain})`,
             },
           ],
         },
