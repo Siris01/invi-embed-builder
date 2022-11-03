@@ -4,7 +4,7 @@ import Loading from "../common/layout/Loading"
 
 const Landing = () => {
   React.useEffect(() => {
-    const memory = JSON.parse(localStorage.getItem("memory")!)
+    const memory = JSON.parse(localStorage.getItem("memory") ?? "{}")
 
     if (memory.template) window.location.href = `/embed?data=${base64UrlEncode(JSON.stringify(({ message: memory.template })))}`
     else window.location.href = "/embed"

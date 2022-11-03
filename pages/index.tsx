@@ -2,6 +2,7 @@
 import { useObserver } from "mobx-react-lite"
 import { destroy, getSnapshot, SnapshotOut } from "mobx-state-tree"
 import { useRouter } from "next/router"
+import type { ParsedUrlQuery } from "querystring"
 import React, { useEffect, useRef, useState } from "react"
 import styled from "styled-components"
 import { base64UrlEncode } from "../common/base64/base64UrlEncode"
@@ -121,7 +122,11 @@ function Main(props: MainProps) {
 }
 
 export default function App() {
-  const query = useRouter().query
+  const router = useRouter()
+  const [query, setQuery] = useState<ParsedUrlQuery | null>(null)
+  useEffect(() => {
+    if (router.isReady) setQuery(router.query)
+  }, [router.isReady, router.query])
 
   const [width, setWidth] = useState<number | null>(null)
   useEffect(() => {
@@ -132,7 +137,7 @@ export default function App() {
     }
   }, [])
 
-  if (!query || !query.data || !width) return <Loading />
+  if (!query || !width) return <Loading />
 
   const state = getSnapshot(getEditorManagerFromQuery(query));
   if (!state) return <Loading />
