@@ -7,7 +7,7 @@ const Landing = () => {
     const memory = JSON.parse(localStorage.getItem("memory")!)
 
     if (memory.template) {
-      const template = base64UrlEncode(memory.template)
+      const template = base64UrlEncode(JSON.stringify([memory.template]))
       window.location.href = `/embed?data=${template}`
     }
   }, [])
