@@ -1,9 +1,11 @@
+/* eslint-disable @typescript-eslint/no-unnecessary-condition */
 import { useObserver } from "mobx-react-lite"
 import { destroy, getSnapshot, SnapshotOut } from "mobx-state-tree"
 import { useRouter } from "next/router"
 import React, { useEffect, useRef, useState } from "react"
 import styled from "styled-components"
 import { base64UrlEncode } from "../common/base64/base64UrlEncode"
+import Loading from "../common/layout/Loading"
 import { ModalManagerContext } from "../common/modal/ModalManagerContext"
 import { Footer } from "../common/page/Footer"
 import { Header } from "../common/page/Header"
@@ -48,22 +50,8 @@ export type MainProps = {
   mobile: boolean
 }
 
-export default function Main() {
-  const query = useRouter().query
-  const state = getSnapshot(getEditorManagerFromQuery(query))
-
-  const [width, setWidth] = useState<number>(1_000)
-  useEffect(() => {
-    setWidth(window.innerWidth)
-    window.addEventListener("resize", () => setWidth(window.innerWidth))
-    return () => {
-      window.removeEventListener("resize", () => setWidth(window.innerWidth))
-    }
-  }, [])
-
-  const mobile = width <= 768
-
-  const editorManager = useLazyValue(() => EditorManager.create(state))
+function Main(props: MainProps) {
+  const editorManager = useLazyValue(() => EditorManager.create(props.state))
   useEffect(() => () => destroy(editorManager), [editorManager])
 
   const cancelRef = useRef<() => void>()
@@ -105,22 +93,22 @@ export default function Main() {
             },
           ]}
           tabs={
-            mobile
+            props.mobile
               ? {
-                  items: ["Editor", "Preview"],
-                  current: activeTab,
-                  onChange: setActiveTab,
-                }
+                items: ["Editor", "Preview"],
+                current: activeTab,
+                onChange: setActiveTab,
+              }
               : undefined
           }
         />
         <View>
-          {(!mobile || activeTab === "Preview") && (
+          {(!props.mobile || activeTab === "Preview") && (
             <div>
               <Preview />
             </div>
           )}
-          {(!mobile || activeTab === "Editor") && (
+          {(!props.mobile || activeTab === "Editor") && (
             <div>
               <Editor />
               <Footer />
@@ -130,4 +118,24 @@ export default function Main() {
       </Container>
     </EditorManagerProvider>
   ))
+}
+
+export default function App() {
+  const query = useRouter().query
+
+  const [width, setWidth] = useState<number | null>(null)
+  useEffect(() => {
+    setWidth(window.innerWidth)
+    window.addEventListener("resize", () => setWidth(window.innerWidth))
+    return () => {
+      window.removeEventListener("resize", () => setWidth(window.innerWidth))
+    }
+  }, [])
+
+  if (!query || !query.data || !width) return <Loading />
+
+  const state = getSnapshot(getEditorManagerFromQuery(query));
+  if (!state) return <Loading />
+
+  return <Main state={state} mobile={width <= 768} />
 }

@@ -10,7 +10,6 @@ import { ModalContext } from "../../../common/modal/ModalContext"
 import { useRequiredContext } from "../../../common/state/useRequiredContext"
 import { mainDomain } from "../../../common/utilities/constants"
 import { remove } from "../../../icons/remove"
-import { stringifyMessage } from "../../message/helpers/stringifyMessage"
 import type { EditorManagerLike } from "../EditorManager"
 import styles from "./ConfigModal.module.css"
 
@@ -22,7 +21,7 @@ const setMsg = async (manager: EditorManagerLike) => {
   const memory = JSON.parse(localStorage.getItem("memory")!)
   const { url, type } = memory
   if (!url) return false
-  const data = stringifyMessage(manager.messages[0].data)
+  const data = JSON.stringify(manager.messages[0].data);
 
   return fetch(url, {
     method: "PATCH",
@@ -77,10 +76,9 @@ export function ConfigModal(props: ConfigModalProps) {
                 }}
               >
                 {btn === null ? (
-                  `Set as ${
-                    JSON.parse(localStorage.getItem("memory")!).type === "join"
-                      ? "join"
-                      : "leave"
+                  `Set as ${JSON.parse(localStorage.getItem("memory")!).type === "join"
+                    ? "join"
+                    : "leave"
                   } message`
                 ) : btn === "loading" ? (
                   <span className={styles.loader} />
