@@ -107,10 +107,10 @@ export default function Main() {
           tabs={
             mobile
               ? {
-                items: ["Editor", "Preview"],
-                current: activeTab,
-                onChange: setActiveTab,
-              }
+                  items: ["Editor", "Preview"],
+                  current: activeTab,
+                  onChange: setActiveTab,
+                }
               : undefined
           }
         />

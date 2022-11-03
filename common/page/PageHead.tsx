@@ -52,7 +52,11 @@ export function PageHead(props: PageHeadProps) {
       <meta key="description" name="description" content={description} />
       <meta key="og:title" property="og:title" content={title} />
       <meta key="og:type" property="og:type" content="website" />
-      <meta key="og:image" property="og:image" content="/embed/static/logo.png" />
+      <meta
+        key="og:image"
+        property="og:image"
+        content="/embed/static/logo.png"
+      />
       <meta
         key="og:url"
         property="og:url"
