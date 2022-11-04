@@ -7,7 +7,7 @@ export const GlobalStyle = createGlobalStyle`${css`
       fontFamily: "Whitney",
       fontStyle: "normal",
       fontWeight: String(weight),
-      fontFilePath: `/embed/static/whitney-${weight}`,
+      fontFilePath: `/app/static/whitney-${weight}`,
       fileFormats: ["woff2", "woff"],
       fontDisplay: "swap",
     }),
@@ -102,7 +102,7 @@ export const GlobalStyle = createGlobalStyle`${css`
 
     &::-webkit-resizer {
       background-image: ${({ theme }) =>
-        `url("/embed/static/resizer-${theme.appearance.color}.svg")`};
+        `url("/app/static/resizer-${theme.appearance.color}.svg")`};
       background-repeat: no-repeat;
       background-position: bottom right;
     }

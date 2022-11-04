@@ -53,9 +53,7 @@ export default function Viewer() {
           items={[
             {
               name: "Editor",
-              to: `/embed?data=${encodeURIComponent(
-                String(router.query.data),
-              )}`,
+              to: `/app?data=${encodeURIComponent(String(router.query.data))}`,
             },
             { name: "Settings", handler: spawnSettingsModal },
           ]}
