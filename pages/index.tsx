@@ -96,10 +96,10 @@ function Main(props: MainProps) {
           tabs={
             props.mobile
               ? {
-                items: ["Editor", "Preview"],
-                current: activeTab,
-                onChange: setActiveTab,
-              }
+                  items: ["Editor", "Preview"],
+                  current: activeTab,
+                  onChange: setActiveTab,
+                }
               : undefined
           }
         />
@@ -139,7 +139,7 @@ export default function App() {
 
   if (!query || !width) return <Loading />
 
-  const state = getSnapshot(getEditorManagerFromQuery(query));
+  const state = getSnapshot(getEditorManagerFromQuery(query))
   if (!state) return <Loading />
 
   return <Main state={state} mobile={width <= 768} />
