@@ -66,7 +66,7 @@ function Main(props: MainProps) {
       const json = JSON.stringify({ messages })
       const base64 = base64UrlEncode(json)
 
-      history.replaceState({ __N: false }, "", `/app?data=${base64}`)
+      history.replaceState({ __N: false }, "", `/embed?data=${base64}`)
     }, 500)
   })
 
@@ -96,10 +96,10 @@ function Main(props: MainProps) {
           tabs={
             props.mobile
               ? {
-                  items: ["Editor", "Preview"],
-                  current: activeTab,
-                  onChange: setActiveTab,
-                }
+                items: ["Editor", "Preview"],
+                current: activeTab,
+                onChange: setActiveTab,
+              }
               : undefined
           }
         />
@@ -139,7 +139,7 @@ export default function App() {
 
   if (!query || !width) return <Loading />
 
-  const state = getSnapshot(getEditorManagerFromQuery(query))
+  const state = getSnapshot(getEditorManagerFromQuery(query));
   if (!state) return <Loading />
 
   return <Main state={state} mobile={width <= 768} />

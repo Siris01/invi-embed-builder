@@ -6,11 +6,8 @@ const Landing = () => {
   React.useEffect(() => {
     const memory = JSON.parse(localStorage.getItem("memory") ?? "{}")
 
-    if (memory.template)
-      window.location.href = `/app?data=${base64UrlEncode(
-        JSON.stringify({ message: memory.template }),
-      )}`
-    else window.location.href = "/app"
+    if (memory.template) window.location.href = `/embed?data=${base64UrlEncode(JSON.stringify(({ message: memory.template })))}`
+    else window.location.href = "/embed"
   }, [])
 
   return <Loading />

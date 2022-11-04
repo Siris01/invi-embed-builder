@@ -8,7 +8,7 @@ const config = {
   poweredByHeader: false,
   distDir: "build",
   reactStrictMode: true,
-  basePath: "/app",
+  basePath: "/embed",
   productionBrowserSourceMaps: true,
   generateBuildId: async () => {
     if (process.env.BUILD_ID) return process.env.BUILD_ID

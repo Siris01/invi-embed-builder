@@ -21,7 +21,7 @@ const setMsg = async (manager: EditorManagerLike) => {
   const memory = JSON.parse(localStorage.getItem("memory")!)
   const { url, type } = memory
   if (!url) return false
-  const data = JSON.stringify(manager.messages[0].data)
+  const data = JSON.stringify(manager.messages[0].data);
 
   return fetch(url, {
     method: "PATCH",
@@ -76,10 +76,9 @@ export function ConfigModal(props: ConfigModalProps) {
                 }}
               >
                 {btn === null ? (
-                  `Set as ${
-                    JSON.parse(localStorage.getItem("memory")!).type === "join"
-                      ? "join"
-                      : "leave"
+                  `Set as ${JSON.parse(localStorage.getItem("memory")!).type === "join"
+                    ? "join"
+                    : "leave"
                   } message`
                 ) : btn === "loading" ? (
                   <span className={styles.loader} />

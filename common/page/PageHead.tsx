@@ -12,19 +12,19 @@ const links = [
   },
   {
     rel: "icon",
-    href: "/app/static/favicon.png",
+    href: "/embed/static/favicon.png",
     sizes: "32x32",
     type: "image/png",
   },
   {
     rel: "icon",
-    href: "/app/static/favicon.svg",
+    href: "/embed/static/favicon.svg",
     sizes: "any",
     type: "image/svg+xml",
   },
   {
     rel: "mask-icon",
-    href: "/app/static/mask-icon.svg",
+    href: "/embed/static/mask-icon.svg",
     type: "image/svg+xml",
   },
 ].flat()
@@ -52,7 +52,11 @@ export function PageHead(props: PageHeadProps) {
       <meta key="description" name="description" content={description} />
       <meta key="og:title" property="og:title" content={title} />
       <meta key="og:type" property="og:type" content="website" />
-      <meta key="og:image" property="og:image" content="/app/static/logo.png" />
+      <meta
+        key="og:image"
+        property="og:image"
+        content="/embed/static/logo.png"
+      />
       <meta
         key="og:url"
         property="og:url"
