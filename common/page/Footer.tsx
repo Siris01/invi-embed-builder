@@ -42,12 +42,6 @@ const Tagline = styled.p`
   line-height: 1.375;
 `
 
-const Info = styled.p`
-  margin: 0 0 4px;
-
-  line-height: 1.375;
-`
-
 const NavigationList = styled.div`
   margin-bottom: 4px;
   display: flex;
@@ -86,7 +80,7 @@ export function Footer() {
         An embed builder forked from <a href={discohook}>Discohook</a>
       </Tagline>
       <NavigationList>
-        <NavigationItem href="/discord" target="_blank">
+        <NavigationItem href="/embed/discord" target="_blank">
           Discord Support Server
         </NavigationItem>
         <NavigationItem href={source} target="_blank">

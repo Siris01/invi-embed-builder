@@ -8,6 +8,7 @@ import { Input } from "../layout/Input"
 import { InputConstraint } from "../layout/InputConstraint"
 import { InputContainer } from "../layout/InputContainer"
 import { InputLabel } from "../layout/InputLabel"
+import { InputSuggestion } from "./InputSuggestion"
 
 const TextInput = styled(Input)`
   ${FlexContainer} > & {
@@ -43,9 +44,10 @@ function InputFieldRenderer(
   props: InputFieldProps,
   ref: ReactRef<HTMLInputElement> | ReactRef<HTMLTextAreaElement>,
 ) {
+  const [value, setValue] = React.useState(props.value,)
+
   const {
     id,
-    value,
     onChange: handleChange,
     label,
     hideLabel,
@@ -76,7 +78,10 @@ function InputFieldRenderer(
       readOnly={readOnly}
       required={required}
       style={{ height: rows ? 15 + 21 * rows : undefined }}
-      onChange={(event: InputChangeEvent) => handleChange(event.target.value)}
+      onChange={(event: InputChangeEvent) => {
+        setValue(event.target.value)
+        handleChange(event.target.value)
+      }}
       onClick={handleClick}
       onFocus={handleFocus}
       onBlur={handleBlur}
@@ -97,6 +102,7 @@ function InputFieldRenderer(
           </InputConstraint>
         )}
       </InputLabel>
+      <InputSuggestion changeValue={setValue} value={value} />
       {Object.prototype.hasOwnProperty.call(props, "children") ? (
         <FlexContainer>
           {input}

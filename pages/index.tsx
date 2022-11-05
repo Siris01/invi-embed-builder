@@ -84,7 +84,7 @@ function Main(props: MainProps) {
       <Container>
         <Header
           items={[
-            { name: "Support", to: "/discord", newWindow: true },
+            { name: "Support", to: "/embed/discord", newWindow: true },
             { name: "Bot", to: "/bot", newWindow: true },
             { name: "Settings", handler: spawnSettingsModal },
             {
