@@ -17,28 +17,28 @@ export type ConfigModalProps = {
   editorManager: EditorManagerLike
 }
 
-const setMsg = async (manager: EditorManagerLike) => {
-  const memory = JSON.parse(localStorage.getItem("memory")!)
-  const { url, type } = memory
-  if (!url) return false
-  const data = JSON.stringify(manager.messages[0].data)
-
-  return fetch(url, {
-    method: "PATCH",
-    headers: {
-      "Content-Type": "application/json",
-      "Authorization": localStorage.getItem("token") ?? "",
-    },
-    body: JSON.stringify(
-      type === "join" ? { join_message: data } : { leave_message: data },
-    ),
-  })
-}
-
 export function ConfigModal(props: ConfigModalProps) {
   const { editorManager } = props
   const modal = useRequiredContext(ModalContext)
   const [btn, setBtn] = useState<string | null>(null)
+  const memory = JSON.parse(localStorage.getItem("memory") ?? "{}")
+
+  const setMsg = async (manager: EditorManagerLike) => {
+    const { url, type } = memory
+    if (!url) return false
+    const data = JSON.stringify(manager.messages[0].data)
+
+    return fetch(url, {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        "Authorization": localStorage.getItem("token") ?? "",
+      },
+      body: JSON.stringify(
+        type === "join" ? { join_message: data } : { leave_message: data },
+      ),
+    })
+  }
 
   return (
     <ModalContainer>
@@ -54,11 +54,15 @@ export function ConfigModal(props: ConfigModalProps) {
         <div className={styles.container}>
           <div className={styles.row}>
             <div className={styles.child}>
+              {memory.name &&
+                `Editing ${memory.type} message for ${memory.name}`}
+            </div>
+          </div>
+          <div className={styles.row}>
+            <div className={styles.child}>
               <PrimaryButton
                 onClick={() => {
-                  const memory = JSON.parse(localStorage.getItem("memory")!)
-                  const { url } = memory
-                  const guild = url.match(/\/guilds\/(\d+)/)?.[1]
+                  const guild = memory.url.match(/\/guilds\/(\d+)/)?.[1]
                   window.location.href = `${mainDomain}/dashboard/${guild}`
                 }}
               >
