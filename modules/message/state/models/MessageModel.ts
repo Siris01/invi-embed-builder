@@ -14,9 +14,12 @@ export const MessageModel = types
     username: "",
     avatar: "",
     embeds: types.array(types.late(() => EmbedModel)),
+    thread_name: types.optional(types.string, ""),
     reference: "",
     timestamp: types.optional(nullableDate, null),
     badge: types.optional(types.maybeNull(types.string), "Bot"),
+    flags_suppress_embeds: types.optional(types.boolean, false),
+    flags_suppress_notifications: types.optional(types.boolean, false), // silent
   })
   .volatile(() => ({
     files: [] as readonly File[],
@@ -40,6 +43,14 @@ export const MessageModel = types
     get data(): MessageData {
       const embeds = self.embeds.flatMap(embed => embed.data)
 
+      let flags = 0
+      if (self.flags_suppress_embeds) {
+        flags |= 1 << 2
+      }
+      if (self.flags_suppress_notifications) {
+        flags |= 1 << 12
+      }
+
       return {
         content: self.content || null,
         embeds: embeds.length > 0 ? embeds : null,
@@ -47,6 +58,8 @@ export const MessageModel = types
         avatar_url: self.avatar || undefined,
         files: self.files.length > 0 ? Array.from(self.files) : undefined,
         attachments: self.files.length === 0 ? [] : undefined,
+        thread_name: self.thread_name || undefined,
+        flags: flags === 0 ? undefined : flags,
       }
     },
 

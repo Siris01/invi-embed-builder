@@ -7,4 +7,6 @@ export type MessageData = {
   readonly avatar_url?: string
   readonly files?: readonly File[]
   readonly attachments?: readonly unknown[]
+  readonly thread_name?: string | null
+  readonly flags?: number
 }

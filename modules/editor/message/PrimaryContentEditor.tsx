@@ -1,5 +1,6 @@
 import { useObserver } from "mobx-react-lite"
 import React from "react"
+import { Checkbox } from "../../../common/input/checkable/Checkbox"
 import { InputError } from "../../../common/input/error/InputError"
 import { FileInputField } from "../../../common/input/file/FileInputField"
 import { InputField } from "../../../common/input/text/InputField"
@@ -52,6 +53,44 @@ export function PrimaryContentEditor(props: PrimaryContentEditorProps) {
                 ? "You cannot edit the username and avatar for previously sent messages"
                 : undefined
             }
+          />
+        </Stack>
+      </Section>
+      <Section name="Thread">
+        <Stack gap={12}>
+          <InputField
+            id={`_${message.id}_thread_name`}
+            label="Forum Thread Name"
+            maxLength={100}
+            error={form.field("thread_name").error}
+            {...form.field("thread_name").inputProps}
+            disabled={isEditing}
+          />
+          <InputError
+            variant="warning"
+            error={
+              isEditing
+                ? "You cannot change thread names using webhooks"
+                : undefined
+            }
+          />
+        </Stack>
+      </Section>
+      <Section name="Flags">
+        <Stack gap={12}>
+          <Checkbox
+            id={`_${message.id}_suppress_embeds`}
+            label="Suppress Embeds"
+            description='Hides link embeds. This cannot be used in conjunction with rich embeds (created with "Add Embed").'
+            error={form.field("flags_suppress_embeds").error}
+            {...form.field("flags_suppress_embeds").inputProps}
+          />
+          <Checkbox
+            id={`_${message.id}_suppress_notifications`}
+            label="Suppress Notifications"
+            description='If the message contains mentions in its "Content" field, this prevents Discord from sending out notifications when it is sent.'
+            error={form.field("flags_suppress_notifications").error}
+            {...form.field("flags_suppress_notifications").inputProps}
           />
         </Stack>
       </Section>
