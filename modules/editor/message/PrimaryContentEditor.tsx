@@ -97,7 +97,7 @@ export function PrimaryContentEditor(props: PrimaryContentEditorProps) {
       <FileInputField
         id={`_${message.id}_files`}
         label="Files"
-        maxSize={8 * 1024 ** 2}
+        maxSize={25 * 1024 ** 2}
         value={message.files}
         onChange={files => message.set("files", files)}
       />
